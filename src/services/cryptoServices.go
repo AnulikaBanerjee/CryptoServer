@@ -8,38 +8,38 @@ import (
 )
 
 func GetDetailsForSymbolAll(url string) []map[string]interface{}{
-	resp3,err:=http.Get(url);
+	response,err:=http.Get(url);
 	if(err!=nil){
 		fmt.Println(err)
 	}
-	defer resp3.Body.Close()
-	body3,err:=ioutil.ReadAll(resp3.Body)
-	byt3:=[]byte(body3)
+	defer response.Body.Close()
+	body3,err:=ioutil.ReadAll(response.Body)
+	byteData:=[]byte(body3)
 	
-	var dat3 []map[string]interface{}
-	if err:= json.Unmarshal(byt3,&dat3);err!=nil{
+	var data []map[string]interface{}
+	if err:= json.Unmarshal(byteData, &data);err!=nil{
 		panic(err)
 	}
 
-	return dat3
+	return data
 		
 }
 
 func GetDetailsForSymbols(url,symbol string) map[string]interface{}{
-	resp3,err:=http.Get(url+symbol);
+	response,err:=http.Get(url+symbol);
 	if(err!=nil){
 		fmt.Println(err)
 	}
-	defer resp3.Body.Close()
-	body3,err:=ioutil.ReadAll(resp3.Body)
-	byt3:=[]byte(body3)
+	defer response.Body.Close()
+	body3,err:=ioutil.ReadAll(response.Body)
+	byteData:=[]byte(body3)
 	
 	
-	var dat3  map[string]interface{}
-	if err:= json.Unmarshal(byt3,&dat3);err!=nil{
+	var data  map[string]interface{}
+	if err:= json.Unmarshal(byteData, &data);err!=nil{
 		panic(err)
 	}
 
-	return dat3
+	return data
 		
 }
