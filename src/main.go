@@ -27,12 +27,12 @@ func currencyHandlerFunc(w http.ResponseWriter, r *http.Request){
 	*/
 	//for path
 	path:=r.URL.Path
-	fmt.Println("Path=: "+path)
+	//fmt.Println("Path=: "+path)
 	input:=strings.TrimPrefix(path,"/currency/")
 	if input=="all" {
 		input=""
 	}
-	utils.RunCryptoServerForSymbol(input)
+	fmt.Fprintf(w, utils.RunCryptoServerForSymbol(input))
 
 }
 

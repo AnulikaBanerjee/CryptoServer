@@ -7,8 +7,8 @@ import (
 	"fmt"
 )
 
-func GetDetailsForSymbolAll(url,symbol string) []map[string]interface{}{
-	resp3,err:=http.Get(url+symbol);
+func GetDetailsForSymbolAll(url string) []map[string]interface{}{
+	resp3,err:=http.Get(url);
 	if(err!=nil){
 		fmt.Println(err)
 	}
