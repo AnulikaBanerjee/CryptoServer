@@ -55,4 +55,19 @@ This project exposes a web service which creates a micro-service with the follow
     - Ticker = "https://api.hitbtc.com/api/2/public/ticker/"
 	- Symbol = "https://api.hitbtc.com/api/2/public/symbol/"
 	- Currency ="https://api.hitbtc.com/api/2/public/currency/"
-    
+
+# Instructions to use
+    - clone this repo using this command to your /home/{username}/go/src or $GOPATH
+```sh
+$ git clone git@github.com:AnulikaBanerjee/CryptoServer.git
+```
+    - open terminal and run 
+```sh
+$ go run main.go
+```
+
+# To Test
+    - Once server is up hit 
+        http://localhost:8080/currency/{symbol} eg. symbol -> ETHBTC
+        http://localhost:8080/currency/all
+        
