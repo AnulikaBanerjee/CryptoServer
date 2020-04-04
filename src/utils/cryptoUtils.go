@@ -33,6 +33,9 @@ func RunCryptoServerForSymbol(input string) string{
 	var finalResponse string
 	if(input!=""){
 		symbolResp= services.GetDetailsForSymbols(constants.Symbol,input)
+		if msg,ok:=symbolResp["error"];ok{
+			return fmt.Sprintf("%v",msg)
+		}
 		tickerResp= services.GetDetailsForSymbols(constants.Ticker,input)
 		temp,_:=symbolResp["baseCurrency"]
 		input=fmt.Sprintf("%v",temp)
@@ -91,10 +94,10 @@ func getParsedCryptoDetailsForAll(symbolRespAll,tickerRespAll,currencyRespAll []
 	for _,result1 := range tempResp{
 		resultArr=append(resultArr,result1)
 	}
-	var jhg ResultAll
-	jhg.Currencies=resultArr
-	hg,_:=json.Marshal(jhg)
-	finalResp=string(hg)
+	var resultAll ResultAll
+	resultAll.Currencies=resultArr
+	jsonResult,_:=json.Marshal(resultAll)
+	finalResp=string(jsonResult)
 
 	return finalResp
 }

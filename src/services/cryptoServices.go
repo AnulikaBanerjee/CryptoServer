@@ -12,9 +12,11 @@ func GetDetailsForSymbolAll(url string) []map[string]interface{}{
 	if(err!=nil){
 		fmt.Println(err)
 	}
+	
 	defer response.Body.Close()
-	body3,err:=ioutil.ReadAll(response.Body)
-	byteData:=[]byte(body3)
+	responseBody,err:=ioutil.ReadAll(response.Body)
+
+	byteData:=[]byte(responseBody)
 	
 	var data []map[string]interface{}
 	if err:= json.Unmarshal(byteData, &data);err!=nil{
@@ -31,8 +33,8 @@ func GetDetailsForSymbols(url,symbol string) map[string]interface{}{
 		fmt.Println(err)
 	}
 	defer response.Body.Close()
-	body3,err:=ioutil.ReadAll(response.Body)
-	byteData:=[]byte(body3)
+	responseBody,err:=ioutil.ReadAll(response.Body)
+	byteData:=[]byte(responseBody)
 	
 	
 	var data  map[string]interface{}

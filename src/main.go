@@ -25,9 +25,9 @@ func currencyHandlerFunc(w http.ResponseWriter, r *http.Request){
 
 	fmt.Println("Url Param 'key' is: " + string(key))
 	*/
+	
 	//for path
 	path:=r.URL.Path
-	//fmt.Println("Path=: "+path)
 	input:=strings.TrimPrefix(path,"/currency/")
 	if input=="all" {
 		input=""
@@ -43,6 +43,7 @@ func currencyHandlerFunc(w http.ResponseWriter, r *http.Request){
 func main() {
 
 	http.HandleFunc("/currency/", currencyHandlerFunc)
+	fmt.Println("Server listening to localhost on 8080 at path /currency/{symbol} and /currency/all")
 	http.ListenAndServe(":"+constants.ListenPort,nil)
 	
 }
